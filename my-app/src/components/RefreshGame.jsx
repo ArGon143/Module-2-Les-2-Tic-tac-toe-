@@ -1,21 +1,12 @@
 import styles from '../App.module.css';
 import PropTypes from 'prop-types';
 
-export const RefreshGame = ({ setSquares, setFirstPlayerIsNext, setIsWinEndGame }) => {
+export const RefreshGame = ({ goRefreshGame }) => {
 	RefreshGame.propTypes = {
-		setSquares: PropTypes.func,
-		setFirstPlayerIsNext: PropTypes.func,
-		setIsWinEndGame: PropTypes.func,
+		goRefreshGame: PropTypes.func,
 	};
 	return (
-		<button
-			className={styles.refButton}
-			onClick={() => {
-				setSquares(Array(9).fill(null));
-				setFirstPlayerIsNext(true);
-				setIsWinEndGame(false);
-			}}
-		>
+		<button className={styles.refButton} onClick={goRefreshGame}>
 			Начать игру заново
 		</button>
 	);

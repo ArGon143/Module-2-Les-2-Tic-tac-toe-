@@ -20,6 +20,12 @@ export const GameLayout = ({
 		setIsWinEndGame: PropTypes.func,
 	};
 
+	const goRefreshGame = () => {
+		setSquares(Array(9).fill(null));
+		setFirstPlayerIsNext(true);
+		setIsWinEndGame(false);
+	};
+
 	return (
 		<div className={styles.app}>
 			<section className={styles.section}>
@@ -31,11 +37,7 @@ export const GameLayout = ({
 					isWinEndGame={isWinEndGame}
 					setIsWinEndGame={setIsWinEndGame}
 				/>
-				<RefreshGame
-					setSquares={setSquares}
-					setFirstPlayerIsNext={setFirstPlayerIsNext}
-					setIsWinEndGame={setIsWinEndGame}
-				/>
+				<RefreshGame goRefreshGame={goRefreshGame} />
 			</section>
 		</div>
 	);
